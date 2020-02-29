@@ -1,0 +1,93 @@
+
+  <div class="container"
+       fxLayout="column"
+       fxLayoutGap="10px">
+
+    <div fxFlex>
+      <div>
+        <h3>List of Contracts</h3>
+        <hr>
+      </div>
+    </div>
+
+    <div fxFlex *ngIf="errmsg">
+      <h2>Error</h2>
+      <h4>{{errmsg}}</h4>
+    </div>
+
+
+    <div fxFlex>
+      <mat-grid-list cols="1" rowHeight="400px">
+        <mat-grid-tile *ngFor="let customer of customers" class="list-container">
+
+          <mat-grid-tile-header style="background-color:lightslategray">
+            <h1><b>{{customer.customerName | uppercase}}</b></h1>
+          </mat-grid-tile-header>
+          <mat-card class="card-container">
+            <mat-card-content>
+              <p>
+                <span>
+                  <b>Customer Name : </b>
+                  {{customer.customerName}}
+                </span>
+              </p>
+            </mat-card-content>
+            <mat-card-content>
+              <p>
+                <span>
+                  <b>Customer Address : </b>
+                  {{customer.customerAddress}}
+                </span>
+              </p>
+
+            </mat-card-content>
+            <mat-card-content>
+              <p>
+                <span>
+                  <b>Total Price : </b>
+                  {{customer.totalPrice | currency:'EUR':true}}
+                </span>
+              </p>
+            </mat-card-content>
+            <mat-card-content>
+              <p>
+                <span>
+                  <b>Broker Name :</b>
+                  {{customer.brokerName}}
+                </span>
+              </p>
+            </mat-card-content>
+            <mat-card-content>
+              <p>
+                <span>
+                  <b>Broker Address :</b>
+                  {{customer.brokerAddress}}
+                </span>
+              </p>
+            </mat-card-content>
+            <mat-card-content>
+              <p>
+                <span>
+                  <b>Contract Start Date : </b>
+                  {{customer.contractStartDate | date:'mediumDate'}}
+                </span>
+              </p>
+            </mat-card-content>
+            <mat-card-content>
+              <p>
+                <span>
+                  <b>Contract End Date : </b>
+                  {{customer.contractEndDate | date:'mediumDate'}}
+                </span>
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+
+
+
+
+  </div>
+  
